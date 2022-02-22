@@ -21,6 +21,7 @@ x64/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+*.onnx
 *_i.c
 *_p.c
 *_i.h

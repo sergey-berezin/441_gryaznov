@@ -1,0 +1,60 @@
+﻿<Window x:Class="Lab2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab2"
+        mc:Ignorable="d"
+        Title="SuperProgram" Height="450" Width="800">
+
+
+    <Grid>
+
+        <TextBox x:Name ="TextBox_Path" 
+                 Text="C:\prac\441_gryaznov\Assets\Images"
+                 HorizontalAlignment="Left" Margin="25,26,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="18"/>
+
+        <Button x:Name="btnSelect" Content="Select folder" 
+                Click="btnSelect_Click"
+                HorizontalAlignment="Left" Height="18" Margin="350,26,0,0" 
+                VerticalAlignment="Top" Width="85"/>
+
+        <Button x:Name="btnRun" Content="Run" 
+                Click="btnRun_Click"
+                HorizontalAlignment="Left" Height="20" Margin="440,25,0,0" 
+                VerticalAlignment="Top" Width="85"/>
+
+        <Button x:Name="btnCancel" Content="Stop" 
+                Click="btnCancel_Click"
+                HorizontalAlignment="Left" Margin="530,26,0,0" VerticalAlignment="Top" 
+                RenderTransformOrigin="0.631,0.754" Width="75"/>
+
+        <Button x:Name="btnDelete" Content="Delete" 
+                Click="btnDelete_Click"
+                HorizontalAlignment="Left" Margin="610,26,0,0" VerticalAlignment="Top" 
+                RenderTransformOrigin="-0.224,0.733" Width="75"/>
+
+
+        <ListBox x:Name ="Obj" Margin="25,84,485,45" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <Image Source="{Binding BitmapImageObj}" Height="100"/>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <TextBox x:Name="DBid" Margin="25,61,669,355"
+               Text="{Binding ElementName=Obj, Path=SelectedItem.DetectedObjectId}" 
+               BorderBrush="Black"
+               Visibility="Hidden">
+        </TextBox>
+        
+        <Image Margin="336,85,52,46" 
+               Source="{Binding ElementName=Obj, Path=SelectedItem.BitmapImageFull}"/>
+        
+    </Grid>
+
+</Window>
